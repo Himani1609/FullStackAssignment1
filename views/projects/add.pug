@@ -1,0 +1,22 @@
+extends ../common/layout 
+
+block layout-content 
+    h2 Add a Project
+    form(action="/projects/add/submit", method="POST")
+        .form-experience 
+            label(for="name") Name: 
+            input(type="text" id="name" name="name" placeholder="Glam Guide")
+        .form-experience 
+            label(for="status") Status: 
+            input(type="text" id="status" name="status" placeholder="Planned")
+        .form-experience 
+            label(for="timespan") TimeSpan: 
+            input(type="text" id="timespan" name="timespan" placeholder="1 month")
+        .form-experience 
+            label(for="technology") Technologies Used:
+            input(type="text" id="technology" name="technology" placeholder="HTML,CSS,JavaScript")
+        .form-experience 
+            label(for="summary") Summary: 
+            textarea(id="summary" name="summary" rows="2" cols="30" placeholder="A cosmetic app designed to compare beauty products among brands.")
+        .form-experience 
+            button(type="submit" class="btn btn-primary add-btn") Add Project

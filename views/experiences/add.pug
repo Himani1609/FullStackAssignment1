@@ -1,0 +1,25 @@
+extends ../common/layout 
+
+block layout-content 
+    h2 Add an Experience 
+    form(action="/experiences/add/submit", method="POST")
+        .form-experience 
+            label(for="title") Title: 
+            input(type="text" id="title" name="title" placeholder="Assisstant Manager")
+        .form-experience 
+            label(for="company") Company: 
+            input(type="text" id="company" name="company" placeholder="Royal Bank Of Canada")
+        .form-experience 
+            label(for="location") Location: 
+            input(type="text" id="location" name="location" placeholder="Toronto")
+        .form-experience 
+            label(for="startYear") Start Year:
+            input(type="number" id="startYear" name="startYear" placeholder="2023")
+        .form-experience 
+            label(for="endYear") End Year: 
+            input(type="number" id="endYear" name="endYear" placeholder="2025")
+        .form-experience 
+            label(for="description") Description: 
+            textarea(id="description" name="description" rows="2" cols="30" placeholder="Managing a team to deliver effective product to the client")
+        .form-experience 
+            button(type="submit" class="btn btn-primary add-btn") Add Experience

@@ -1,0 +1,22 @@
+extends ../common/layout
+
+block layout-content
+  h2.text-center.my-4 Projects
+  .add-link
+    a(href="/projects/add") Add Project
+  .experience-content
+    .row
+      each item in project 
+        .col-md-12
+          .card.mb-4
+            .card-body
+              h5.card-title= item.name
+              h6.card-subtitle.mb-2.text-muted= item.status
+              p.card-text
+                | Timespan: #{item.timespan}
+                br
+                | Technologies Used: #{item.technology}
+              p.card-text= item.summary
+              form(action="/projects/delete/submit" class="delete-class")
+                input(type="hidden" name="projId" value=item._id)
+                button(type="submit" class="delete-btn") Delete
