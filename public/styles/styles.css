@@ -110,11 +110,11 @@ h2 {
 }
 
 /* Form Fields */
-.form-experience {
+.form-experience, .form-element {
     margin-bottom: 15px;
 }
 
-.form-experience label {
+.form-experience label, .form-element label {
     font-size: 1rem;
     font-weight: bold;
     color: #495057;
@@ -123,7 +123,7 @@ h2 {
 }
 
 .form-experience input,
-.form-experience textarea {
+.form-experience textarea, .form-element input, .form-element textarea {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
@@ -134,7 +134,7 @@ h2 {
 }
 
 .form-experience input:focus,
-.form-experience textarea:focus {
+.form-experience textarea:focus, .form-element input:focus, .form-element textarea:focus{
     border-color: #007bff;
     outline: none;
 }
@@ -160,6 +160,9 @@ button[type="submit"].add-btn:focus {
     outline: none;
 }
 
+p{
+    text-align: center;
+}
 
 /* Placeholder Styling */
 input::placeholder,

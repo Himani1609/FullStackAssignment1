@@ -3,15 +3,19 @@ const experienceModel = require("./model");
 
 // creating getExperience to list all the experiences which is in experience.pug
 const listExperience = async(request,response) => {
+    if(request.session.loggedIn){
+        let experienceData = await experienceModel.getExperience();
 
-    let experienceData = await experienceModel.getExperience();
-
-    if(!experienceData.length){
-        await experienceModel.initializeExperience();
-        experienceData = experienceModel.getExperience();
+        if(!experienceData.length){
+            await experienceModel.initializeExperience();
+            experienceData = experienceModel.getExperience();
+        }
+    
+        response.render("experiences/list", {experience : experienceData});
     }
-
-    response.render("experiences/list", {experience : experienceData});
+    else{
+        response.redirect("/admin/login");
+    }
 };
 
 
@@ -23,7 +27,12 @@ const getExperienceAPI = async(request,response) => {
 // creating showAddForm to show the add form which is in add.pug
 // Redirect to the experiences list page after successful submission
 const showAddForm = async(request,response) => {
-    response.render("experiences/add", );
+    if(request.session.loggedIn){
+        response.render("experiences/add", );
+    }
+    else{
+        response.redirect("/admin/login");
+    } 
 }
 
 
